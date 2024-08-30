@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    Nome: {{dados.nome}}
+    E-mail: {{dados.email}}
+
+    {% if dados.idade >= '18' %}
+    <h5>C fica esperto em... polícia já pode te pegar</h5>
+    {% else %}
+    <h5>De menor</h5>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Disciplina</th>
+        </tr>
+    {% for disciplina in dados.getlist('disciplina') %}
+        <tr>
+            <td>{{disciplina}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
